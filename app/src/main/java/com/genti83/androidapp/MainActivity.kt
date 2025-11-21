@@ -138,6 +138,8 @@ class MainActivity : AppCompatActivity() {
      * Set up global exception handler to catch unhandled exceptions
      */
     private fun setupGlobalExceptionHandler() {
+        val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
+        
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
             Log.e(TAG, "CRASH DETECTED on thread: ${thread.name}", throwable)
             logMessage("CRASH DETECTED: ${throwable::class.java.simpleName} - ${throwable.message}", LogLevel.ERROR)
@@ -148,7 +150,8 @@ class MainActivity : AppCompatActivity() {
             }
             
             // In a real app, you might send this to a crash reporting service
-            // For now, we'll just log it
+            // Call the original handler to ensure proper crash reporting
+            defaultHandler?.uncaughtException(thread, throwable)
         }
     }
 
@@ -207,9 +210,10 @@ class MainActivity : AppCompatActivity() {
                 logMessage("ArithmeticException handled: ${e.message}", LogLevel.ERROR)
             }
             
-            // Test 2: Intentional NullPointerException
+            // Test 2: Intentional NullPointerException (for error handling demonstration)
             try {
                 val nullString: String? = null
+                // Note: Using !! operator intentionally to demonstrate NullPointerException handling
                 val length = nullString!!.length
                 Log.d(TAG, "testErrorHandling: This should not print: $length")
             } catch (e: NullPointerException) {

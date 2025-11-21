@@ -544,12 +544,6 @@ androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-<!-- Storage (Android 12 and below) -->
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-    android:maxSdkVersion="32" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-    android:maxSdkVersion="32" />
-
 <!-- Notifications (Android 13+) -->
 <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 ```
@@ -560,8 +554,7 @@ androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 |------------|------|-------|
 | INTERNET | Normal | Network requests |
 | ACCESS_NETWORK_STATE | Normal | Check connectivity |
-| READ/WRITE_EXTERNAL_STORAGE | Dangerous | File access |
-| POST_NOTIFICATIONS | Dangerous | Show notifications |
+| POST_NOTIFICATIONS | Dangerous | Show notifications (Android 13+) |
 
 ### Runtime Permission Handling
 - Automatically requested when needed
