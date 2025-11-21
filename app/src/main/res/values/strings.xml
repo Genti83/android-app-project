@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android App Project</string>
+    <string name="welcome_message">Welcome to Android App with Error Handling!</string>
+    <string name="button_test_app">Test App Features</string>
+    <string name="button_test_error">Trigger Error Test</string>
+    <string name="button_test_permission">Test Permissions</string>
+    <string name="button_clear_logs">Clear Logs</string>
+    <string name="log_output">Log Output</string>
+    <string name="status_label">Status:</string>
+    <string name="status_ok">All systems operational</string>
+    <string name="status_error">Error detected - check logs</string>
+    <string name="error_null_pointer">NullPointerException detected and handled</string>
+    <string name="error_permission_denied">Permission denied - check AndroidManifest</string>
+    <string name="error_general">An error occurred</string>
+</resources>
